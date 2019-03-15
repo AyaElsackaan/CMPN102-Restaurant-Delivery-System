@@ -102,6 +102,8 @@
     <ClInclude Include="Generic_DS\Node.h" />
     <ClInclude Include="Generic_DS\Queue.h" />
     <ClInclude Include="GUI\GUI.h" />
+    <ClInclude Include="LinkedList-List.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="Rest\Motorcycle.h" />
     <ClInclude Include="Rest\Order.h" />
     <ClInclude Include="Rest\Restaurant.h" />

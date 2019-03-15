@@ -108,6 +108,12 @@
     <ClInclude Include="Events\ArrivalEvent.h">
       <Filter>Events</Filter>
     </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Generic_DS</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedList-List.h">
+      <Filter>Generic_DS</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Demo_Main.cpp" />
