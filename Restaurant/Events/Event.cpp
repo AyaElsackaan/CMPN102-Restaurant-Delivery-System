@@ -5,6 +5,7 @@ Event::Event(int eTime, int ordID)
 {
 	EventTime = eTime;
 	OrderID	= ordID;
+	
 }
 
 

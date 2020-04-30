@@ -1,34 +1,39 @@
 #ifndef __RESTAURANT_H_
 #define __RESTAURANT_H_
 
-#include "..\Defs.h"
-#include "..\CMUgraphicsLib\CMUgraphics.h"
-#include "..\GUI\GUI.h"
-#include "..\Generic_DS\Queue.h"
-#include "..\Events\Event.h"
-
-
+#include "../Defs.h"
+#include "../CMUgraphicsLib/CMUgraphics.h"
+#include "../GUI/GUI.h"
+#include "../Generic_DS/Queue.h"
+#include "../Events/Event.h"
+#include"../Events/PromotionEvent.h"
+#include "Motorcycle.h"
+#include<fstream>
+#include<sstream>
+#include<string>
 #include "Order.h"
+#include "../ListLinkedList.h"
+#include"..\PriorityQueue.h"
+#include "../Region.h"
+class Restaurant
+{
 
-// it is the maestro of the project
-class Restaurant  
-{	
-private:
 	GUI *pGUI;
-	Queue<Event*> EventsQueue;	//Queue of all events that will be loaded from file
-
-	
-	/// ==> 
-	//	DEMO-related members. Should be removed in phases 1&2
-	Queue<Order*> DEMO_Queue;	//Important: This is just for demo
-	/// ==>
-	
 	//
 	// TODO: Add More Data Members As Needed
 	//
+	Queue<Event*> EventsQueue;	//Queue of all events that will be loaded from file
+	Region* rArr;
+	Queue<Order*> FinishedOrders; //Queue of all finished orders 
+	ListLinkedList<Order*> temporders;
+	int Prom;   //promotion limit for normal orders
+	int motoID ;
+	Queue<Order*> lasttimestep;
+
 
 public:
-	
+	void Save();
+	bool Read(const string s);
 	Restaurant();
 	~Restaurant();
 	void AddEvent(Event* pE);	//adds a new event to the queue of events
@@ -36,16 +41,23 @@ public:
 	void RunSimulation();
 
 	/// ==> 
-	///  DEMO-related functions. Should be removed in phases 1&2
-	void Just_A_Demo();	//just to show a demo and should be removed in phase1 1 & 2
-	void AddtoDemoQueue(Order* po);	//adds an order to the demo queue
-	Order* getDemoOrder();			//return the front order from demo queue
-	/// ==> 
-
 
 	//
 	// TODO: Add More Member Functions As Needed
 	//
+	void InteractiveMode();
+	void StepMode();
+	void SilentMode();
+	void AddtoOrders(Order* po, int ts);
+	void CancelEvent(int id);
+	bool endOfOrders()const;
+	void PromoteEvent(int Time, int ID, double Mon);
+	void serve(int timestep);
+	void returnMotorcycles(int timestep);
+	void promotenormal(int);
+	void setscheduled(Order*pO);
+	void returnrestingMotorcycles(int);
+	void setserved(int );
 
 };
 

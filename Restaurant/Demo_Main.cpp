@@ -1,14 +1,13 @@
-//#include "Drawing.h"
-#include "Rest\Restaurant.h"
-#include "GUI\GUI.h"
+#pragma once
+#include<iostream>
+#include "Rest/Restaurant.h"
+using namespace std;
+
+
 
 int main()
 {
-	
-	Restaurant* pRest = new Restaurant;
-	pRest->RunSimulation();
-	
-	delete pRest;
-	
+	Restaurant R;
+	R.RunSimulation();
 	return 0;
 }

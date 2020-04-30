@@ -11,6 +11,7 @@ class Event
 protected:
 	int EventTime;	//Timestep when this event takes place
 	int OrderID;	//each event is related to certain order
+	//double money;
 public:
 	Event(int eTime, int ordID);
 	int getEventTime();
@@ -18,7 +19,7 @@ public:
 	virtual ~Event();
 
 
-	virtual void Execute(Restaurant* pRest)=0;	////a pointer to "Restaurant" and events need it to execute
+	virtual void Execute(Restaurant* pRest, int ts=0)=0;	////a pointer to "Restaurant" and events need it to execute
 
 };
 

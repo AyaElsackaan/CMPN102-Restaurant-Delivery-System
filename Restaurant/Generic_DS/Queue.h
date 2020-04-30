@@ -51,12 +51,15 @@ private :
 	
 	Node<T>* backPtr;
 	Node<T>* frontPtr;
+	int count;
 public :
 	Queue();	
+    T* toArray() ;
 	bool isEmpty() const ;
 	bool enqueue(const T& newEntry);
 	bool dequeue(T& frntEntry);  
-	bool peekFront(T& frntEntry)  const;	
+	bool peekFront(T& frntEntry)  const;
+	int  GetCount();
 	~Queue();
 };
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -66,12 +69,26 @@ Function: Queue()
 The constructor of the Queue class.
 
 */
-
+template < class T>
+ T * Queue<T>::toArray() 
+{
+	T * QueueCont = new T[count];
+	Node<T>* curPtr = frontPtr;
+	int counter = 0;
+	while ((curPtr != nullptr) && (counter < count))
+	{
+		QueueCont[counter] = curPtr->getItem();
+		curPtr = curPtr->getNext();
+		counter++;
+	} // end while
+	return QueueCont;
+} // end toArray
 template <typename T>
 Queue<T>::Queue()
 {
 	backPtr=nullptr;
 	frontPtr=nullptr;
+	count = 0;
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -111,6 +128,7 @@ bool Queue<T>::enqueue( const T& newEntry)
 	else
 		backPtr->setNext(newNodePtr); // The queue was not empty
 	backPtr = newNodePtr; // New node is at back
+	count++;
 	return true ;
 } // end enqueue
 
@@ -124,7 +142,11 @@ earliest.
 Input: None.
 Output: True if the operation is successful; otherwise false.
 */
-
+template <typename T>
+int  Queue<T>::GetCount()
+{
+	return count;
+}
 template <typename T>
 bool Queue<T>:: dequeue(T& frntEntry)  
 {
@@ -141,7 +163,7 @@ bool Queue<T>:: dequeue(T& frntEntry)
 	// Free memory reserved by the dequeued node
 	delete nodeToDeletePtr;
 
-
+	count--;
 	return true;
 
 }
@@ -171,5 +193,8 @@ bool Queue<T>:: peekFront(T& frntEntry) const
 template <typename T>
 Queue<T>::~Queue()
 {
+	T* temp;
+	while (!dequeue(*temp))
+		delete temp;
 }
 #endif

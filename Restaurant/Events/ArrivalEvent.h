@@ -12,11 +12,12 @@ class ArrivalEvent: public Event
 	ORD_TYPE OrdType;		//order type: Normal, Frozen, VIP
 	REGION OrdRegion;  //Region of this order	                
 	double OrdMoney;	//Total order money
+	int finishtime;
 public:
-	ArrivalEvent(int eTime, int oID, ORD_TYPE oType, REGION reg);
+	ArrivalEvent(int eTime, int oID,int OD ,double OrderMoney,ORD_TYPE oType, REGION reg,int);
 	//Add more constructors if needed
 	
-	virtual void Execute(Restaurant *pRest);	//override execute function
+	virtual void Execute(Restaurant *pRest, int ts);	//override execute function
 
 };
 

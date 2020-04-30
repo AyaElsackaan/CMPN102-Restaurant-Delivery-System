@@ -111,8 +111,29 @@
     <ClInclude Include="List.h">
       <Filter>Generic_DS</Filter>
     </ClInclude>
-    <ClInclude Include="LinkedList-List.h">
+    <ClInclude Include="ListLinkedList.h">
       <Filter>Generic_DS</Filter>
+    </ClInclude>
+    <ClInclude Include="PriorityQueueInterface.h">
+      <Filter>Generic_DS</Filter>
+    </ClInclude>
+    <ClInclude Include="PriorityQueue.h">
+      <Filter>Generic_DS</Filter>
+    </ClInclude>
+    <ClInclude Include="SortedListInterface.h">
+      <Filter>Generic_DS</Filter>
+    </ClInclude>
+    <ClInclude Include="SortedListLinkedList.h">
+      <Filter>Generic_DS</Filter>
+    </ClInclude>
+    <ClInclude Include="Region.h">
+      <Filter>Restaurant</Filter>
+    </ClInclude>
+    <ClInclude Include="PromotionEvent.h">
+      <Filter>Events</Filter>
+    </ClInclude>
+    <ClInclude Include="CancellationEvent.h">
+      <Filter>Events</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -238,6 +259,15 @@
       <Filter>Events</Filter>
     </ClCompile>
     <ClCompile Include="Events\ArrivalEvent.cpp">
+      <Filter>Events</Filter>
+    </ClCompile>
+    <ClCompile Include="Region.cpp">
+      <Filter>Restaurant</Filter>
+    </ClCompile>
+    <ClCompile Include="PromotionEvent.cpp">
+      <Filter>Events</Filter>
+    </ClCompile>
+    <ClCompile Include="CancellationEvent.cpp">
       <Filter>Events</Filter>
     </ClCompile>
   </ItemGroup>

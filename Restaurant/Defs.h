@@ -17,6 +17,8 @@ enum ORD_TYPE	//types of orders
 	TYPE_NRM,	//normal order
 	TYPE_FROZ,	//frozen
 	TYPE_VIP,	//VIP
+	TYPE_SCH,	//scheduled
+	//TYPE_COMBO	//COMBO
 	TYPE_CNT	//Number of types
 
 };
@@ -24,7 +26,9 @@ enum ORD_TYPE	//types of orders
 enum STATUS	//status of motorcycles
 {
 	IDLE,	//idle ==> waiting to be assigned at order
-	SERV	//is-service ==> is delivering at order but hasn't returned yet.
+	SERV,	//is-service ==> is delivering at order but hasn't returned yet.
+	RESTING, //When returning to rest after serving an order
+	DAMAGED  //When health is 0 or less
 };
 
 
@@ -33,7 +37,6 @@ enum PROG_MODE	//mode of the program interface
 	MODE_INTR,	//interactive mode
 	MODE_STEP,	//Step-by-step mode
 	MODE_SLNT,	//Silent mode
-	MODE_DEMO,	//Demo mode (for introductory phase only, should be removed in phases 1&2)
 	MODE_CNT	//number of possible modes
 };
 

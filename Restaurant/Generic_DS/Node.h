@@ -16,6 +16,7 @@ public :
 	void setNext(Node<T>* nextNodePtr);
 	T getItem() const ;
 	Node<T>* getNext() const ;
+
 }; // end Node
 
 
