@@ -1,0 +1,2 @@
+A restaurant delivery simulation of data structures course at Faculty of Engineering, Cairo University (CMPN102).
+This project is based on the C++ implementation of various data structures to serve orders in a restaurant based on the system's defined priorities.
